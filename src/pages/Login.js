@@ -1,10 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
-function Login() {
-    const history = useHistory()
-    function handleClick(e) {
-    history.push("/blogposts")
+function Login({ toggleAuth }) {
+    const history = useHistory();
+
+    function handleClick() {
+        toggleAuth(true);
+        history.push("/blogposts");
     }
 
     return (
@@ -12,7 +14,8 @@ function Login() {
             <h1>Login</h1>
             <p>Je kunt nu inloggen</p>
             <button
-            onClick={handleClick}>
+                type="button"
+                onClick={handleClick}>
                 Inloggen
             </button>
         </section>

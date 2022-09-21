@@ -6,14 +6,11 @@ function Blogoverview() {
     return (
         <section>
             <h1>Blogoverview</h1>
-            <p>Hier vind je alle blogs</p>
-            <p>Moeilijk kiezen welke blog je wil lezen? Bekijk hieronder het hele overzicht of klik <Link to="/blogposts/:blogId">hier</Link> voor het laatste blog</p>
             <p>Aantal blogposts: {posts.length}</p>
-            <h2>De lijst: </h2>
             <ol>
                 {posts.map((post) => {
-                    return <li>
-                        <Link to={`/blogposts/${post.id}`}>{post.title}</Link>
+                    return <li key={post.id}>
+                        <Link to={`/blog/${post.id}`} className="post-list">{post.title}</Link>
                     </li>
                 })}
             </ol>
